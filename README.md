@@ -2,7 +2,7 @@
 
 Portal de noticias 
 
-* Ruby version 3.1.1
+* Ruby version 3.1
 
 Al crear una noticia ésta requiere:
 
