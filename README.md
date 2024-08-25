@@ -1,6 +1,6 @@
-# TheRialNews
+# PostLMM
 
-Portal de noticias realizado como desafío para el curso de ruby on rails.
+Portal de noticias 
 
 * Ruby version 3.1.1
 
