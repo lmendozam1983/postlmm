@@ -9,16 +9,12 @@ services:
     name: mysite
     runtime: ruby
     plan: free
-    buildCommand: "./bin/render-build.sh"
-    # preDeployCommand: "bundle exec rails db:migrate"
-    # preDeployCommand only available on paid instance types
+    # Comandos de construcción podrían estar aquí en lugar de usar render-build.sh
+    # buildCommand: "bundle install && bundle exec rake assets:precompile && bundle exec rake assets:clean"
     startCommand: "bundle exec rails server"
     envVars:
       - key: DATABASE_URL
         fromDatabase:
           name: mysite
           property: connectionString
-      - key: RAILS_MASTER_KEY
-        sync: false
-      - key: WEB_CONCURRENCY
-        value: 2 # sensible default
+
