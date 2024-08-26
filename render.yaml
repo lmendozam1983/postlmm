@@ -1,9 +1,17 @@
+databases:
+  - name: mysite
+    databaseName: mysite
+    user: mysite
+    plan: free
+
 services:
   - type: web
     name: mysite
     runtime: ruby
     plan: free
-    buildCommand: "bundle install && bundle exec rake assets:precompile && bundle exec rake assets:clean"
+    buildCommand: "./bin/render-build.sh"
+    # preDeployCommand: "bundle exec rails db:migrate"
+    # preDeployCommand only available on paid instance types
     startCommand: "bundle exec rails server"
     envVars:
       - key: DATABASE_URL
@@ -13,4 +21,4 @@ services:
       - key: RAILS_MASTER_KEY
         sync: false
       - key: WEB_CONCURRENCY
-        value: 2
+        value: 2 # sensible default
